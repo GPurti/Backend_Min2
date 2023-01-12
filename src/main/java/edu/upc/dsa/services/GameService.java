@@ -295,5 +295,17 @@ public class GameService {
         GenericEntity<List<ChatMessage>> entity = new GenericEntity<List<ChatMessage>>(chatMessages) {};
         return Response.status(201).entity(entity).build();
     }
+    @POST
+    @ApiOperation(value = "add a question", notes = "Do you want to add a question?")
+    @ApiResponses(value = {
+            @ApiResponse(code = 201, message = "Successful")
+
+    })
+    @Path("/user/question")
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response newQuestion(Question question) throws SQLException {
+        this.tm.addQuestion(question);
+        return Response.status(201).entity(question).build();
+    }
 }
 

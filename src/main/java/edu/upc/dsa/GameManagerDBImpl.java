@@ -42,6 +42,13 @@ public class GameManagerDBImpl implements GameManager{
     }
 
     @Override
+    public void addQuestion(Question question) throws SQLException {
+        logger.info("Adding a question...");
+        //this.session.save(question);
+        logger.info("The Question has been added correctly in : "+question.getDate()+", "+question.getTitle()+", "+question.getMessage()+", "+question.getSender());
+    }
+
+    @Override
     public String addUser(String name, String surname, String date, String email, String password) throws EmailAlreadyBeingUsedException, SQLException {
         logger.info("Adding a user...");
         User user = new User(name, surname, date, email, password);

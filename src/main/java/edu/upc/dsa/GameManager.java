@@ -27,4 +27,5 @@ public interface GameManager {
     public void addMessage(ChatMessage message) throws SQLException;
     public List<ChatMessage> getMessages(Integer firstMessage);
     public int numMessages();
+    public void addQuestion(Question question) throws SQLException;
 }
