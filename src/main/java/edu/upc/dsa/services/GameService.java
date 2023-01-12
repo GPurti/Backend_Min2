@@ -31,9 +31,9 @@ public class GameService {
         logger.info("Hey im here using the service");
 
         if (tm.numUsers()==0) {
-            this.tm.addUser("Alba", "Roma", "23112001", "albaroma@gmail.com", "123456","hey");
-            this.tm.addUser("Maria", "Ubiergo", "02112001", "meri@gmail.com", "123456","hey");
-            this.tm.addUser("Guillem", "Purti", "02112001", "guille@gmail.com", "123456","hey");
+            this.tm.addUser("Alba", "Roma", "23112001", "albaroma@gmail.com", "123456");
+            this.tm.addUser("Maria", "Ubiergo", "02112001", "meri@gmail.com", "123456");
+            this.tm.addUser("Guillem", "Purti", "02112001", "guille@gmail.com", "123456");
         }
         if(tm.numGadgets()==0) {
             this.tm.addGadget("1",3,"Ojo volador","https://img.freepik.com/vector-premium/objeto-volador-no-identificado-pixel-estilo_475147-433.jpg?w=2000");
@@ -119,7 +119,7 @@ public class GameService {
     public Response newUser(UserInformation newUser){
         if (Objects.equals(newUser.getName(), "") || Objects.equals(newUser.getBirthday(), "") || Objects.equals(newUser.getEmail(), "") || Objects.equals(newUser.getPassword(), "") || Objects.equals(newUser.getSurname(), ""))  return Response.status(500).entity(newUser).build();
         try{
-            this.tm.addUser(newUser.getName(), newUser.getSurname(), newUser.getBirthday(), newUser.getEmail(), newUser.getPassword(), newUser.getProfileAvatar());
+            this.tm.addUser(newUser.getName(), newUser.getSurname(), newUser.getBirthday(), newUser.getEmail(), newUser.getPassword());
             return Response.status(201).entity(newUser).build();
         }
         catch (EmailAlreadyBeingUsedException | SQLException E){

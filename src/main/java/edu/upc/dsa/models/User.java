@@ -19,11 +19,11 @@ public class User {
     Boolean currentlyPlaying;
     Integer coins;
     Integer experience;
-    String avatar;
+
 
 
     public User(){};
-    public User(String name, String surname,String date, String email, String password, String avatar) {
+    public User(String name, String surname,String date, String email, String password) {
         this.idUser = RandomUtils.getId();
         this.name = name;
         this.surname = surname;
@@ -33,7 +33,6 @@ public class User {
         this.currentlyPlaying = false;
         this.coins = 50;
         this.experience = 0;
-        this.avatar=avatar;
 
     }
 
@@ -103,13 +102,6 @@ public class User {
         this.coins = coins;
     }
 
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
 
     public void purchaseGadget(Gadget gadget) throws NotEnoughMoneyException {
         if(gadget.getCost()>this.coins){

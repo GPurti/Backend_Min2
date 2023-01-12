@@ -8,8 +8,6 @@ public class UpdatableUserInformation {
     String email;
     String password;
 
-
-
     public UpdatableUserInformation(){}
 
     public UpdatableUserInformation(String idUser, String name, String surname, String birthday, String email, String password) {
